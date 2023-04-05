@@ -2,6 +2,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:the49="https://schemas.the49.com/dotnet/2023/maui"
              x:Class="BottomSheetIssueSample.Pages.MySheetPage">
+
+    <the49:BottomSheet.Detents>
+        <the49:FullscreenDetent />
+    </the49:BottomSheet.Detents>
+
     <Label Text="This label was created to demonstrate issue mentioned in https://github.com/the49code/The49.Maui.BottomSheet/issues/11" 
            FontSize="42"
            />
