@@ -1,9 +1,9 @@
-﻿namespace BottomSheetIssueSample;
+﻿using BottomSheetIssueSample.Pages;
+
+namespace BottomSheetIssueSample;
 
 public partial class MainPage : ContentPage
 {
-	int count = 0;
-
 	public MainPage()
 	{
 		InitializeComponent();
@@ -11,14 +11,13 @@ public partial class MainPage : ContentPage
 
 	private void OnCounterClicked(object sender, EventArgs e)
 	{
-		count++;
+        var page = new MySheetPage();
 
-		if (count == 1)
-			CounterBtn.Text = $"Clicked {count} time";
-		else
-			CounterBtn.Text = $"Clicked {count} times";
+        page.IsModal = true; // workaroung to fix the Android top gap which were mentioned in https://github.com/the49code/The49.Maui.BottomSheet/issues/10
+        page.ShowHandle = true;
+        page.Cancelable = true;
 
-		SemanticScreenReader.Announce(CounterBtn.Text);
-	}
+        page.Show(Window);
+    }
 }
 
